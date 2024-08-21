@@ -1,0 +1,35 @@
+{
+    "inbounds": [
+      {
+        "type": "mixed",
+        "tag": "mixed-in",
+        "listen": "0.0.0.0",
+        "listen_port": 2080
+      },
+      {
+        "type": "tun",
+        "tag": "tun-in",
+        "inet4_address": "172.19.0.1/30",
+        "auto_route": true,
+        "strict_route": true,
+        "stack": "mixed",
+        "sniff": true
+      }
+    ],
+    "outbounds": [
+      {
+        "type": "trojan",
+        "tag": "trojan1",
+        "server": "38.54.51.10",
+        "server_port": 443,
+        "password": "JDZ8K7e4fNarPvn3VEpxMRyfZAZVw7Rg",
+        "tls": { "enabled": true, "insecure": false },
+        "network": "tcp",
+        "tcp_fast_open": false
+      }
+    ],
+    "route": {
+      "final": "trojan1"
+    }
+  }
+  
